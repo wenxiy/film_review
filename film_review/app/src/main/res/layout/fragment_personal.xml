@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingConstraints">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:background="@drawable/backgrou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/c_concern_count"
+            android:layout_width="37dp"
+            android:layout_height="13dp"
+            android:textColor="@color/white"
+            android:text="0"
+            android:textSize="12dp"
+            android:gravity="center"
+            fresco:layout_constraintStart_toEndOf="@+id/c_concern"
+            fresco:layout_constraintTop_toTopOf="@+id/c_concern"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/f_fan_count"
+            android:layout_width="37dp"
+            android:layout_height="13dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="0"
+            android:textSize="12dp"
+            fresco:layout_constraintStart_toEndOf="@+id/f_fan"
+            fresco:layout_constraintTop_toTopOf="@+id/f_fan"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/c_concern"
+            android:layout_width="48dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:text="@string/concern"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintHorizontal_bias="0.096"
+            fresco:layout_constraintStart_toStartOf="parent"
+            fresco:layout_constraintTop_toBottomOf="@+id/avatar"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/f_fan"
+            android:layout_width="48dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/fan"
+            android:textSize="12dp"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintHorizontal_bias="0.438"
+            fresco:layout_constraintStart_toStartOf="parent"
+            fresco:layout_constraintTop_toBottomOf="@+id/avatar"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/likes"
+            android:layout_width="48dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/likes"
+            android:textSize="12dp"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintHorizontal_bias="0.779"
+            fresco:layout_constraintStart_toStartOf="parent"
+            fresco:layout_constraintTop_toBottomOf="@+id/avatar"
+            tools:ignore="MissingConstraints" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/avatar"
+            android:layout_width="122dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            fresco:layout_constraintStart_toStartOf="parent"
+            fresco:layout_constraintTop_toTopOf="parent"
+            fresco:placeholderImage="@drawable/place_init"
+            fresco:roundAsCircle="true" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="126dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginRight="68dp"
+            android:textColor="@color/white"
+            android:text="  温鑫"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintHorizontal_bias="0.0"
+            fresco:layout_constraintRight_toRightOf="parent"
+            fresco:layout_constraintStart_toEndOf="@+id/avatar"
+            fresco:layout_constraintTop_toTopOf="@+id/avatar"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/ID"
+            android:layout_width="91dp"
+            android:layout_height="16dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center"
+            android:text="2018213834"
+            android:textColor="@color/white"
+            fresco:layout_constraintBottom_toBottomOf="@+id/avatar"
+            fresco:layout_constraintHorizontal_bias="0.0"
+            fresco:layout_constraintLeft_toRightOf="@+id/avatar"
+            fresco:layout_constraintRight_toRightOf="parent"
+            fresco:layout_constraintTop_toBottomOf="@+id/name"
+            fresco:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="37dp"
+            android:layout_height="13dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:gravity="center"
+            fresco:layout_constraintStart_toEndOf="@+id/likes"
+            fresco:layout_constraintTop_toTopOf="@+id/likes"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/xiaoxi"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/xiaoxi"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/bianji"
+            android:layout_width="28dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/gerenxiugai"
+            android:gravity="center"
+            android:textSize="30dp"
+            fresco:layout_constraintBottom_toBottomOf="parent"
+            fresco:layout_constraintEnd_toEndOf="parent"
+            fresco:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewparper1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            fresco:tabGravity="fill"
+            fresco:tabIndicatorColor="#F0F3DA0E" />
+    </androidx.viewpager.widget.ViewPager>
+</LinearLayout>

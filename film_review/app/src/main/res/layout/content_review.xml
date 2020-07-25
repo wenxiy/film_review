@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:Fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contentbody">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/top"
+        android:layout_height="64dp"
+        android:background="@drawable/upjiaopian">
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/secondTop"
+        android:layout_below="@id/top">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginVertical="6dp"
+            android:layout_marginLeft="24dp"
+            android:background="@drawable/tagbutton"
+            android:id="@+id/context_icon"
+            android:backgroundTint="@color/tagcolor"/>
+        <TextView
+            android:id="@+id/Context_UserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户名"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="82dp"
+            android:layout_marginTop="14dp"/>
+
+        <TextView
+            android:id="@+id/Context_commitTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="82dp"
+            android:layout_marginBottom="10dp"
+            android:text="发表时间"/>
+
+        <Button
+            android:id="@+id/attention_btn"
+            android:background="@drawable/attention_btn"
+            android:text="关注"
+            android:textColor="@color/white"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"/>
+
+
+    </RelativeLayout>
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/test"
+        android:id="@+id/context_Picture"
+        android:layout_below="@id/secondTop" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/context_Picture"
+        android:id="@+id/contentTitle"
+        android:paddingHorizontal="17dp"
+        android:textColor="@color/black"
+        android:scrollbars="vertical"
+        android:textSize="20sp"
+        android:maxLines="1"
+        android:text="biaoti"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contentTitle"
+        android:paddingHorizontal="17dp"
+        android:id="@+id/context_content"
+        android:text="正文"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/Review_Tag"
+        android:background="@drawable/tag_buttons"
+        android:layout_width="wrap_content"
+        android:padding="2dp"
+        android:layout_height="25dp"
+        android:text="@string/tag"
+        android:textAllCaps="false"
+        android:textColor="#ffaaaaaa"
+        android:textSize="12sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/context_content"/>
+    <View
+        android:id="@+id/line_review"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/Review_Tag"
+        android:layout_marginHorizontal="17dp"
+        android:layerType="software"
+        android:background="@drawable/dotted_line"/>
+
+
+    <Button
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="17dp"
+        android:id="@+id/btn_ReviewComment"
+        android:layout_marginRight="5dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/pinglun"
+        android:layout_below="@+id/line_review"/>
+
+
+
+    <Button
+        android:layout_toLeftOf="@+id/btn_ReviewComment"
+        android:id="@+id/btn_ReviewCollect"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_collect"
+        android:layout_below="@+id/line_review"/>
+
+
+    <Button
+        android:layout_toLeftOf="@+id/btn_ReviewCollect"
+        android:layout_marginEnd="17dp"
+        android:id="@+id/btn_ReviewLiking"
+        android:layout_marginRight="5dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/liking"
+        android:layout_below="@+id/line_review"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Comment_area"
+        android:layout_below="@+id/line_review"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="17dp"
+        android:text="评论区"/>
+
+    <LinearLayout
+        android:id="@+id/lll"
+        android:layout_width="match_parent"
+        android:layout_below="@id/Comment_area"
+        android:layout_height="wrap_content">
+    <EditText
+        android:hint="说点什么呢"
+        android:id="@+id/Comment_Edit"
+        android:layout_width="330dp"
+        android:layout_weight="6"
+        android:layout_marginLeft="13dp"
+        android:layout_height="30dp"
+        android:textSize="12sp"
+        android:layout_below="@id/Comment_area"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/comment_edit_state"
+        android:maxLines="3" />
+    <Button
+        android:id="@+id/Send_Commment"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/Comment_area"
+        android:layout_toRightOf="@+id/Comment_Edit"
+        android:background="@drawable/send_comments"
+        android:text="发送"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        />
+</LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Comment_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lll"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Comment_ListView"
+        android:text="没有更多评论了----"
+        android:layout_marginLeft="17dp"
+        android:foregroundGravity="center"/>
+
+
+
+
+
+</RelativeLayout>

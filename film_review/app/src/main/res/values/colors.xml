@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+    <color name="cursor">#2d1c10</color>
+    <color name="test">#E0C984</color>
+    <color name="colory">#FAC51D</color>
+    <color name="colorz">#90593A</color>
+    <color name="tagcolor">#AAAAAA</color>
+
+    <color name="colorPrimary">#593809</color>
+    <color name="colorPrimaryDark">#593809</color>
+    <color name="colorAccent">#6E5408</color>
+
+    <color name="default_line_color">#e6e6e6</color>
+    <color name="list_item_focus">#0a000000</color>
+    <color name="white_alpha_percent_45">#73ffffff</color>
+    <color name="title_color">#321006</color>
+</resources>

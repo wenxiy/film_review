@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="230dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="2dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="3dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="match_parent"
+                android:background="@color/test"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/tag_IconId"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tag_Title"
+                android:text="标题"
+                android:layout_marginLeft="5dp"
+                android:textSize="20dp"/>
+                <View
+                    android:id="@+id/line_tag"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_below="@+id/tag_Title"
+                    android:layout_marginHorizontal="3dp"
+                    android:layerType="software"
+                    android:background="@drawable/dotted_line"/>
+
+                <TextView
+                    android:id="@+id/tag_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:layout_below="@+id/line_tag"
+                    android:text="文本内容"
+                    android:layout_marginLeft="5dp"/>
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/tagbutton"
+                    android:id="@+id/tag_icon"
+                    android:backgroundTint="@color/tagcolor"
+                    android:layout_alignParentBottom="true"/>
+                <TextView
+                    android:id="@+id/tag_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tag_icon"
+                    android:text="用户名"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="2dp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
