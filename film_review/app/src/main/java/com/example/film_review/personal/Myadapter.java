@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentPagerAdapter;
+
 import java.util.HashMap;
 public class Myadapter extends FragmentPagerAdapter {
     private HashMap<Integer,Fragment> mFragmentHashMap =new HashMap<>();
@@ -30,14 +30,14 @@ public class Myadapter extends FragmentPagerAdapter {
         {
             switch (pos){
                 case 0:
-                    fragment=new My_my();
+                    fragment=new MyFragment();
                     break;
                 case 1:
-                   fragment =My_favorite.newInstance(token,user_id);
+                   fragment = FavoriteFragment.newInstance(token,user_id);
                     Log.i("fragment", "fragment2");
                     break;
                 case 2:
-                    fragment = new My_album();
+                    fragment = new AlbumFragment();
                     Log.i("fragment", "fragment3");
                     break;
             }

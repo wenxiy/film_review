@@ -6,16 +6,15 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 import retrofit2.Call;
 
 public interface API {
     @GET("/api/v1/createuser")//这是用户主页的get网络请求
     Call<Bean>gethomepage();
     @POST("/api/v1/createuser")//这是注册的网络请求
-    Call<Post_bean>getrPostdata(@Body Postdata postdata);
+    Call<PostBean>getrPostdata(@Body PostData postdata);
     @POST("/api/v1/login")//这是登录的网络请求
-    Call<Post_rlogin>getPost_login(@Body Post_login post_login);
+    Call<PostToken>getPost_login(@Body PostLoginBean post_loginBean);
     @GET("/api/v1/people/{user_id}/collection")
     Call<List<CollectData>> getCollection(@Header("token")String token, @Path("user_id")String user_id);
 }

@@ -1,6 +1,6 @@
 package com.example.film_review.personal;
 
-public class getmyData {
+public class MyDataBean {
 
     /**
      * Followers : string

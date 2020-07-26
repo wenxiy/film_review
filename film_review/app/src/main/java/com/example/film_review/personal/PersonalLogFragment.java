@@ -1,21 +1,15 @@
 package com.example.film_review.personal;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.ComponentActivity;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.example.film_review.MainActivity;
 import com.example.film_review.R;
@@ -28,15 +22,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class fragment_personal_login_in extends AppCompatActivity {
+public class PersonalLogFragment extends AppCompatActivity {
     public Button log_in;
     public TextView don_log_in;
     public EditText user_id;
     public EditText user_passwords;
-    private Post_rlogin Post_rlogin;
+    private PostToken Post_rlogin;
     private String s;
     private String UserId;
-    public static fragment_personal_login_in ActivityLoginIn;
+    public static PersonalLogFragment ActivityLoginIn;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -57,7 +51,7 @@ public class fragment_personal_login_in extends AppCompatActivity {
             public void onClick(View v) {
                 String mpasswords=user_passwords.getText().toString();
                 if(user_id.equals("")||mpasswords.equals("")) {
-                    Toast.makeText(fragment_personal_login_in.this,"请输入完整的账户和密码",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonalLogFragment.this,"请输入完整的账户和密码",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     getPost_login();
@@ -68,7 +62,7 @@ public class fragment_personal_login_in extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.setClass(fragment_personal_login_in.this,fragment_personal_registered.class);
+                intent.setClass(PersonalLogFragment.this, RegisteredFragment.class);
                 startActivity(intent);
             }
         });
@@ -76,7 +70,7 @@ public class fragment_personal_login_in extends AppCompatActivity {
     public void getPost_login(){
         String mpasswords=user_passwords.getText().toString();
         String muser_id=user_id.getText().toString();
-        Post_login post_login=new Post_login();
+        PostLoginBean post_login=new PostLoginBean();
         post_login.setPassword(mpasswords);
         post_login.setUser_id(muser_id);
         Retrofit lretrofit=new Retrofit.Builder()
@@ -84,10 +78,10 @@ public class fragment_personal_login_in extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         API lapi=lretrofit.create(API.class);
-        Call<Post_rlogin> task=lapi.getPost_login(post_login);
-        task.enqueue(new Callback<Post_rlogin>() {
+        Call<PostToken> task=lapi.getPost_login(post_login);
+        task.enqueue(new Callback<PostToken>() {
             @Override
-            public void onResponse(Call<Post_rlogin> call, Response<Post_rlogin> response) {
+            public void onResponse(Call<PostToken> call, Response<PostToken> response) {
                 int code=response.code();
                 if(code== HttpURLConnection.HTTP_OK){
                     Post_rlogin=response.body();
@@ -103,25 +97,25 @@ public class fragment_personal_login_in extends AppCompatActivity {
                     intent.putExtras(bundle);
                     Log.d("TAG","user_id"+UserId);
 
-                    intent.setClass(fragment_personal_login_in.this,MainActivity.class);
+                    intent.setClass(PersonalLogFragment.this,MainActivity.class);
 
                     startActivity(intent);
-                    fragment_personal_login.ActivityLogin.finish();
+                    PersonalLoginFragment.ActivityLogin.finish();
                     MainActivity.sMainActivity.finish();
                     finish();
                 }
                 Log.e("TAG","200");
                 if(code==HttpURLConnection.HTTP_UNAUTHORIZED){
-                    Toast.makeText(fragment_personal_login_in.this,"用户名和密码错误",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonalLogFragment.this,"用户名和密码错误",Toast.LENGTH_SHORT).show();
                     Log.e("TAG","401");
                 }
                 if(code==HttpURLConnection.HTTP_BAD_REQUEST){
-                    Toast.makeText(fragment_personal_login_in.this,"参数不全，客户端语法有问题",Toast.LENGTH_SHORT);
+                    Toast.makeText(PersonalLogFragment.this,"参数不全，客户端语法有问题",Toast.LENGTH_SHORT);
                 }
             }
 
             @Override
-            public void onFailure(Call<Post_rlogin> call, Throwable t) {
+            public void onFailure(Call<PostToken> call, Throwable t) {
 
             }
         });

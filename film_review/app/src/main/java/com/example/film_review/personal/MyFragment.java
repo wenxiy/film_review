@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.film_review.R;
 
-public class My_my extends Fragment {
+public class MyFragment extends Fragment {
     public RecyclerView myRecyclerView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){

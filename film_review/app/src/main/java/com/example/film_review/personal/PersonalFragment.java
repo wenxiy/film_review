@@ -16,10 +16,9 @@ import com.example.film_review.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.tabs.TabLayout;
 
-public class fragment_personal extends Fragment {
+public class PersonalFragment extends Fragment {
     private ViewPager mViewPager;
     private Myadapter mMyadapter;
-    //Context mContext;
     private TabLayout mTabs ;
     private SimpleDraweeView msimpledraweeView;
     private Bundle bundle;

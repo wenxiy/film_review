@@ -14,18 +14,18 @@ import com.example.film_review.R;
 
 import java.util.List;
 
-public class collectListViewAdapter extends RecyclerView.Adapter<collectListViewAdapter.InnerHolder> {
+public class CollectListViewAdapter extends RecyclerView.Adapter<CollectListViewAdapter.InnerHolder> {
     public List<CollectData> mData;
     private View view;
     private OnItemClickListener mOnItemClickListener;
 
-    public collectListViewAdapter(List<CollectData> data) {
+    public CollectListViewAdapter(List<CollectData> data) {
         this.mData=data;
     }
 
     @NonNull
     @Override
-    public collectListViewAdapter.InnerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CollectListViewAdapter.InnerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater= LayoutInflater.from(parent.getContext());
         view=layoutInflater.inflate(R.layout.collect_item,parent,false);
@@ -35,7 +35,7 @@ public class collectListViewAdapter extends RecyclerView.Adapter<collectListView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull collectListViewAdapter.InnerHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CollectListViewAdapter.InnerHolder holder, int position) {
         if(mData!=null) holder.setData(mData.get(position));
         if(mOnItemClickListener!=null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {

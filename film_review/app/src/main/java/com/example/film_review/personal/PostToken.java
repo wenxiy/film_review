@@ -1,6 +1,6 @@
 package com.example.film_review.personal;
 
-public class Post_rlogin {
+public class PostToken {
     /**
      * token : string
      */

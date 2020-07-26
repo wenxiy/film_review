@@ -14,8 +14,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.film_review.firstpage.main_firstpage.FragmentFirstpage;
 import com.example.film_review.personal.API;
 import com.example.film_review.personal.Bean;
-import com.example.film_review.personal.fragment_personal;
-import com.example.film_review.personal.fragment_personal_login;
+import com.example.film_review.personal.PersonalFragment;
+import com.example.film_review.personal.PersonalLoginFragment;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
     protected FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
     private FragmentFirstpage fragmentFirstpage;
-    private fragment_personal_login mfragment_personal_login;
+    private PersonalLoginFragment mfragment_personal_login;
     private ArrayList<Object> fragments;
     private Fragment mCurrentFragment=null;
     private Bundle mbundle;
     private String token;
-    private fragment_personal mfragment_personal;
+    private PersonalFragment mfragment_personal;
     private Intent mIntent;
     public static MainActivity sMainActivity;
     private String user_id;
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 //        activity与fragment之间通过bundle和setArguments传递数据
         fragmentFirstpage = new FragmentFirstpage();
         fragmentFirstpage.setArguments(mbundle);
-        mfragment_personal=new fragment_personal();
+        mfragment_personal=new PersonalFragment();
         mfragment_personal.setArguments(mbundle);
 
 
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 else if(menuItem.getItemId()==R.id.personal){
                     if(token==null){
                         mIntent=new Intent();
-                        mIntent.setClass(getApplicationContext(),fragment_personal_login.class);
+                        mIntent.setClass(getApplicationContext(), PersonalLoginFragment.class);
                         startActivity(mIntent);
                     }
                     else showFragment(1);

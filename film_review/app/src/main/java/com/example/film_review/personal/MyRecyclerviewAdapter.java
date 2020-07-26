@@ -1,29 +1,23 @@
 package com.example.film_review.personal;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.film_review.MainActivity;
 import com.example.film_review.R;
 import com.example.film_review.firstpage.found.StaggerAdapter;
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public class MyRecyclerviewAdapter extends RecyclerView.Adapter<MyRecyclerviewAdapter.InnerHolder> {
-    public List<getmyData> mdata;
+    public List<MyDataBean> mdata;
     private OnItemClickListener  mOnItemClickListener;
-    public MyRecyclerviewAdapter(List<getmyData> data)
+    public MyRecyclerviewAdapter(List<MyDataBean> data)
     {
         this.mdata=data;
     }

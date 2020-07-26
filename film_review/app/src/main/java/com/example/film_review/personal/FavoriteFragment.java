@@ -7,14 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.film_review.R;
-import com.example.film_review.firstpage.RetrofitAPI;
 import com.example.film_review.firstpage.review_content.ContentActivity;
 
 import java.util.ArrayList;
@@ -26,24 +24,24 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class My_favorite extends Fragment {
+public class FavoriteFragment extends Fragment {
     private RecyclerView list;
     private LinearLayoutManager mLinearLayoutManger;
     private SwipeRefreshLayout refreshLayout;
     private String user_id;
     private String token;
-    private collectListViewAdapter mAdapter;
+    private CollectListViewAdapter mAdapter;
     private List<CollectData> mData;
     private Bundle bundle;
     private View view;
 
-    public static My_favorite newInstance(String token,String user_id) {
+    public static FavoriteFragment newInstance(String token, String user_id) {
 
         Bundle args = new Bundle();
         args.putString("token",token);
         args.putString("user_id",user_id);
 
-        My_favorite fragment = new My_favorite();
+        FavoriteFragment fragment = new FavoriteFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -89,13 +87,13 @@ public class My_favorite extends Fragment {
                 mLinearLayoutManger = new LinearLayoutManager(getActivity());
 //        给recyclerview设置布局管理器
                 list.setLayoutManager(mLinearLayoutManger);
-                mAdapter = new collectListViewAdapter(mData);
+                mAdapter = new CollectListViewAdapter(mData);
                 list.setAdapter(mAdapter);
 //        构造适配器，给Recyclerview设置适配器
                 Log.d("2", code + "");
 //                Log.d("3", response.body().get(0) + " ");
                 refreshLayout.setRefreshing(false);
-                mAdapter.setOnItemClickListener(new collectListViewAdapter.OnItemClickListener() {
+                mAdapter.setOnItemClickListener(new CollectListViewAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
 //                        将intent与目标activity联系

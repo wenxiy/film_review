@@ -1,6 +1,6 @@
 package com.example.film_review.personal;
 //注册的发送请求数据类
-public class Postdata  {
+public class PostData {
 
     /**
      * name : string
