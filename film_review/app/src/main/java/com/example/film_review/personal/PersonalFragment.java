@@ -56,18 +56,18 @@ public class PersonalFragment extends Fragment {
                 .baseUrl("http://114.215.201.204:9091")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        Log.d("TAG","debug.wenxiy0");
-        API api =retrofit.create(API.class);
-        Log.d("TAG","debug.wenxiy1");
-        Call<Bean> task=api.gethomepage();
-        Log.d("TAG","debug.wenxiy2");
+        Log.d("TAG", "debug.wenxiy0");
+        API api = retrofit.create(API.class);
+        Log.d("TAG", "debug.wenxiy1");
+        Call<Bean> task = api.gethomepage();
+        Log.d("TAG", "debug.wenxiy2");
         task.enqueue(new Callback<Bean>() {
             @Override
             public void onResponse(Call<Bean> call, Response<Bean> response) {
-                int code=response.code();
-                if (code== HttpsURLConnection.HTTP_OK){
-                    personbean=response.body();
-                    Log.d("Tag",personbean.getUser_picture());
+                int code = response.code();
+                if (code == HttpsURLConnection.HTTP_OK) {
+                    personbean = response.body();
+                    Log.d("Tag", personbean.getUser_picture());
                     msimpledraweeView.setImageURI(personbean.getUser_picture());
                 }
             }
@@ -80,8 +80,8 @@ public class PersonalFragment extends Fragment {
         });
         //   mTabs=findViewById(R.id.tabs);
         //   mMyadapter=new Myadapter(getSupportFragmentManager());
-       Uri imageUri = Uri.parse("http://placekitten.com/300/200");
-       // msimpledraweeView.setImageURI(imageUri);
+        Uri imageUri = Uri.parse("http://placekitten.com/300/200");
+        // msimpledraweeView.setImageURI(imageUri);
     }
 
     public void initfragment() {

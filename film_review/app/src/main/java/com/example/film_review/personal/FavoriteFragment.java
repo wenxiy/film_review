@@ -40,32 +40,32 @@ public class FavoriteFragment extends Fragment {
     public static FavoriteFragment newInstance(String token, String user_id) {
 
         Bundle args = new Bundle();
-        args.putString("token",token);
-        args.putString("user_id",user_id);
+        args.putString("token", token);
+        args.putString("user_id", user_id);
         FavoriteFragment fragment = new FavoriteFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
-        token=getArguments().getString("token");
-        user_id=getArguments().getString("user_id");
-        view= inflater.inflate(R.layout.fragment_personal_favorite,null);
-        list=view.findViewById(R.id.personal_recyclerview);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        token = getArguments().getString("token");
+        user_id = getArguments().getString("user_id");
+        view = inflater.inflate(R.layout.fragment_personal_favorite, null);
+        list = view.findViewById(R.id.personal_recyclerview);
 
-        refreshLayout=view.findViewById(R.id.personal_refresh);
+        refreshLayout = view.findViewById(R.id.personal_refresh);
         refreshLayout.setRefreshing(true);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 initData();
-                Log.d("TAG","下拉刷新");
+                Log.d("TAG", "下拉刷新");
             }
         });
         refreshLayout.setRefreshing(false);
         initData();
-       return  view;
+        return view;
     }
 
     private void initData() {
@@ -74,11 +74,11 @@ public class FavoriteFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         API mAPI = retrofit.create(API.class);
-        Call<List<CollectData>> task=mAPI.getCollection(token,user_id);
+        Call<List<CollectData>> task = mAPI.getCollection(token, user_id);
         task.enqueue(new Callback<List<CollectData>>() {
             @Override
             public void onResponse(Call<List<CollectData>> call, Response<List<CollectData>> response) {
-                Log.d("0",user_id+token);
+                Log.d("0", user_id + token);
                 int code = response.code();
                 mData = new ArrayList<>();
                 mData.addAll(response.body());
@@ -117,6 +117,7 @@ public class FavoriteFragment extends Fragment {
                     }
                 });
             }
+
             @Override
             public void onFailure(Call<List<CollectData>> call, Throwable t) {
                 t.printStackTrace();

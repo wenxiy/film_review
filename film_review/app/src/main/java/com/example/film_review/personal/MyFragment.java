@@ -12,9 +12,10 @@ import com.example.film_review.R;
 
 public class MyFragment extends Fragment {
     public RecyclerView myRecyclerView;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){
-        View v=inflater.inflate(R.layout.fragment_personal_my,null);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_personal_my, null);
         //myRecyclerView=v.findViewById(R.id.my_recyclerview);
 
         return v;

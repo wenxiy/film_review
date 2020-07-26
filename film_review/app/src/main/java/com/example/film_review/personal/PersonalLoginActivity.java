@@ -14,19 +14,20 @@ import com.example.film_review.R;
 public class PersonalLoginActivity extends AppCompatActivity {
     private Button log;
     public static PersonalLoginActivity ActivityLogin;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
-        ActivityLogin=this;
+        ActivityLogin = this;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_loginpage);
-        log=findViewById(R.id.log);
+        log = findViewById(R.id.log);
 
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
+                Intent intent = new Intent();
                 intent.setClass(getApplication(), PersonalLogActivity.class);
                 startActivity(intent);
             }
@@ -36,6 +37,6 @@ public class PersonalLoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("msg","destroy");
+        Log.d("msg", "destroy");
     }
 }
