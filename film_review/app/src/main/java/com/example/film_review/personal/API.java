@@ -1,4 +1,11 @@
 package com.example.film_review.personal;
+import com.example.film_review.personal.bean.Bean;
+import com.example.film_review.personal.bean.CollectData;
+import com.example.film_review.personal.bean.PostBean;
+import com.example.film_review.personal.bean.PostData;
+import com.example.film_review.personal.bean.PostLoginBean;
+import com.example.film_review.personal.bean.PostToken;
+
 import java.util.List;
 
 import retrofit2.http.Body;

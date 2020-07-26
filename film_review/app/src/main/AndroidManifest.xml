@@ -20,12 +20,12 @@
         </activity>
         <activity android:name=".firstpage.review_content.ContentActivity"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".personal.PersonalLogFragment"
+        <activity android:name=".personal.PersonalLogActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
         <activity android:name=".personal.RegisteredFragment"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".personal.PersonalLoginFragment"
+        <activity android:name=".personal.PersonalLoginActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".firstpage.search.activity_search"
             android:windowSoftInputMode="adjustPan"/>

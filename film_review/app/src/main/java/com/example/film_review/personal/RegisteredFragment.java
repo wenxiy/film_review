@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.film_review.R;
+import com.example.film_review.personal.bean.PostBean;
+import com.example.film_review.personal.bean.PostData;
 
 import java.net.HttpURLConnection;
 
@@ -76,7 +78,7 @@ public class RegisteredFragment extends AppCompatActivity {
                 Toast.makeText(RegisteredFragment.this,"已为您自动跳转至登录界面，记得记住用户名ID哦",Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent();//这是跳转的Intent
                     intent.putExtra("key",response.body().toString());
-                    intent.setClass(RegisteredFragment.this, PersonalLogFragment.class);
+                    intent.setClass(RegisteredFragment.this, PersonalLogActivity.class);
                     startActivity(intent);
                     finish();
                 }

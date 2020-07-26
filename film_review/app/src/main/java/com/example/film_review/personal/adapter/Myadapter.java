@@ -1,4 +1,4 @@
-package com.example.film_review.personal;
+package com.example.film_review.personal.adapter;
 
 import android.util.Log;
 import android.view.ViewGroup;
@@ -8,6 +8,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.film_review.personal.AlbumFragment;
+import com.example.film_review.personal.FavoriteFragment;
+import com.example.film_review.personal.MyFragment;
 
 import java.util.HashMap;
 public class Myadapter extends FragmentPagerAdapter {

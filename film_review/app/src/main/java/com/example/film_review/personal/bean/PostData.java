@@ -1,4 +1,4 @@
-package com.example.film_review.personal;
+package com.example.film_review.personal.bean;
 //注册的发送请求数据类
 public class PostData {
 

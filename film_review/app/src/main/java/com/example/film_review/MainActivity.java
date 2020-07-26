@@ -13,9 +13,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.film_review.firstpage.main_firstpage.FragmentFirstpage;
 import com.example.film_review.personal.API;
-import com.example.film_review.personal.Bean;
+import com.example.film_review.personal.bean.Bean;
 import com.example.film_review.personal.PersonalFragment;
-import com.example.film_review.personal.PersonalLoginFragment;
+import com.example.film_review.personal.PersonalLoginActivity;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected FragmentManager fragmentManager;
     private BottomNavigationView bottomNavigationView;
     private FragmentFirstpage fragmentFirstpage;
-    private PersonalLoginFragment mfragment_personal_login;
+    private PersonalLoginActivity mfragment_personal_login;
     private ArrayList<Object> fragments;
     private Fragment mCurrentFragment=null;
     private Bundle mbundle;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 else if(menuItem.getItemId()==R.id.personal){
                     if(token==null){
                         mIntent=new Intent();
-                        mIntent.setClass(getApplicationContext(), PersonalLoginFragment.class);
+                        mIntent.setClass(getApplicationContext(), PersonalLoginActivity.class);
                         startActivity(mIntent);
                     }
                     else showFragment(1);

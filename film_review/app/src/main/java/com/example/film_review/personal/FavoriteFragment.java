@@ -14,6 +14,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.film_review.R;
 import com.example.film_review.firstpage.review_content.ContentActivity;
+import com.example.film_review.personal.adapter.CollectListViewAdapter;
+import com.example.film_review.personal.bean.CollectData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +42,6 @@ public class FavoriteFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString("token",token);
         args.putString("user_id",user_id);
-
         FavoriteFragment fragment = new FavoriteFragment();
         fragment.setArguments(args);
         return fragment;

@@ -1,4 +1,4 @@
-package com.example.film_review.personal;
+package com.example.film_review.personal.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.film_review.R;
+import com.example.film_review.personal.bean.CollectData;
 
 import java.util.List;
 

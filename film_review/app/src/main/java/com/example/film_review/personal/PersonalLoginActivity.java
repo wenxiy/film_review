@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.film_review.R;
 
-public class PersonalLoginFragment extends AppCompatActivity {
+public class PersonalLoginActivity extends AppCompatActivity {
     private Button log;
-    public static PersonalLoginFragment ActivityLogin;
+    public static PersonalLoginActivity ActivityLogin;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -27,7 +27,7 @@ public class PersonalLoginFragment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.setClass(getApplication(), PersonalLogFragment.class);
+                intent.setClass(getApplication(), PersonalLogActivity.class);
                 startActivity(intent);
             }
         });

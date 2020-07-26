@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.film_review.MainActivity;
 import com.example.film_review.R;
+import com.example.film_review.personal.bean.PostLoginBean;
+import com.example.film_review.personal.bean.PostToken;
 
 import java.net.HttpURLConnection;
 
@@ -22,7 +24,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class PersonalLogFragment extends AppCompatActivity {
+public class PersonalLogActivity extends AppCompatActivity {
     public Button log_in;
     public TextView don_log_in;
     public EditText user_id;
@@ -30,7 +32,7 @@ public class PersonalLogFragment extends AppCompatActivity {
     private PostToken Post_rlogin;
     private String s;
     private String UserId;
-    public static PersonalLogFragment ActivityLoginIn;
+    public static PersonalLogActivity ActivityLoginIn;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -51,7 +53,7 @@ public class PersonalLogFragment extends AppCompatActivity {
             public void onClick(View v) {
                 String mpasswords=user_passwords.getText().toString();
                 if(user_id.equals("")||mpasswords.equals("")) {
-                    Toast.makeText(PersonalLogFragment.this,"请输入完整的账户和密码",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonalLogActivity.this,"请输入完整的账户和密码",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     getPost_login();
@@ -62,7 +64,7 @@ public class PersonalLogFragment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.setClass(PersonalLogFragment.this, RegisteredFragment.class);
+                intent.setClass(PersonalLogActivity.this, RegisteredFragment.class);
                 startActivity(intent);
             }
         });
@@ -86,7 +88,7 @@ public class PersonalLogFragment extends AppCompatActivity {
                 if(code== HttpURLConnection.HTTP_OK){
                     Post_rlogin=response.body();
 
-//                    获得登录界面的token，并把它传进mainactivity，我后面要用
+//                    获得登录界面的token，并把它传进mainactivity，后面要用
                     s=Post_rlogin.getToken();
                     UserId=muser_id;
                     Log.d("TAG","onResponse--->"+s);
@@ -97,26 +99,26 @@ public class PersonalLogFragment extends AppCompatActivity {
                     intent.putExtras(bundle);
                     Log.d("TAG","user_id"+UserId);
 
-                    intent.setClass(PersonalLogFragment.this,MainActivity.class);
+                    intent.setClass(PersonalLogActivity.this,MainActivity.class);
 
                     startActivity(intent);
-                    PersonalLoginFragment.ActivityLogin.finish();
+                    PersonalLoginActivity.ActivityLogin.finish();
                     MainActivity.sMainActivity.finish();
                     finish();
                 }
                 Log.e("TAG","200");
                 if(code==HttpURLConnection.HTTP_UNAUTHORIZED){
-                    Toast.makeText(PersonalLogFragment.this,"用户名和密码错误",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PersonalLogActivity.this,"用户名和密码错误",Toast.LENGTH_SHORT).show();
                     Log.e("TAG","401");
                 }
                 if(code==HttpURLConnection.HTTP_BAD_REQUEST){
-                    Toast.makeText(PersonalLogFragment.this,"参数不全，客户端语法有问题",Toast.LENGTH_SHORT);
+                    Toast.makeText(PersonalLogActivity.this,"参数不全，客户端语法有问题",Toast.LENGTH_SHORT);
                 }
             }
 
             @Override
             public void onFailure(Call<PostToken> call, Throwable t) {
-
+                t.printStackTrace();
             }
         });
     }
