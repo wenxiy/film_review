@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -30,6 +31,8 @@ public class PersonalFragment extends Fragment {
     private Myadapter mMyadapter;
     private TabLayout mTabs;
     private SimpleDraweeView msimpledraweeView;
+    private TextView name;
+    private TextView ID;
     private Bundle bundle;
     private String user_id;
     private String token;
@@ -44,6 +47,8 @@ public class PersonalFragment extends Fragment {
         Log.d("FirstPage", "TOKEN" + token);
         View v = inflater.inflate(R.layout.fragment_personal, null);
         msimpledraweeView = v.findViewById(R.id.avatar);
+        ID = v.findViewById(R.id.ID);
+        name = v.findViewById(R.id.name);
         mViewPager = v.findViewById(R.id.viewparper1);
         mTabs = v.findViewById(R.id.tabs);
         initfragment();
@@ -56,11 +61,8 @@ public class PersonalFragment extends Fragment {
                 .baseUrl("http://114.215.201.204:9091")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        Log.d("TAG", "debug.wenxiy0");
         API api = retrofit.create(API.class);
-        Log.d("TAG", "debug.wenxiy1");
         Call<Bean> task = api.gethomepage();
-        Log.d("TAG", "debug.wenxiy2");
         task.enqueue(new Callback<Bean>() {
             @Override
             public void onResponse(Call<Bean> call, Response<Bean> response) {
@@ -69,6 +71,20 @@ public class PersonalFragment extends Fragment {
                     personbean = response.body();
                     Log.d("Tag", personbean.getUser_picture());
                     msimpledraweeView.setImageURI(personbean.getUser_picture());
+                    name.setText("  "+personbean.getName());
+                    ID.setText(personbean.getUser_id());
+                }
+                if (code == HttpsURLConnection.HTTP_BAD_REQUEST){
+                    Uri imageUri = Uri.parse("http://placekitten.com/300/200");
+                    msimpledraweeView.setImageURI(imageUri);
+                    name.setText("  "+"温鑫");
+                    ID.setText("2018213834");
+                }
+                if (code==HttpsURLConnection.HTTP_NOT_FOUND){
+                    Uri imageUri = Uri.parse("http://placekitten.com/300/200");
+                    msimpledraweeView.setImageURI(imageUri);
+                    name.setText("  "+"温鑫");
+                    ID.setText("2018213834");
                 }
             }
 
@@ -76,11 +92,13 @@ public class PersonalFragment extends Fragment {
             public void onFailure(Call<Bean> call, Throwable t) {
                 Uri imageUri = Uri.parse("http://placekitten.com/300/200");
                 msimpledraweeView.setImageURI(imageUri);
+                name.setText("  "+"温鑫");
+                ID.setText("2018213834");
             }
         });
         //   mTabs=findViewById(R.id.tabs);
         //   mMyadapter=new Myadapter(getSupportFragmentManager());
-        Uri imageUri = Uri.parse("http://placekitten.com/300/200");
+        //  Uri imageUri = Uri.parse("http://placekitten.com/300/200");
         // msimpledraweeView.setImageURI(imageUri);
     }
 
