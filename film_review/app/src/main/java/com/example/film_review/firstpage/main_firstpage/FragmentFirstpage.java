@@ -47,16 +47,16 @@ public class FragmentFirstpage extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        bundle=this.getArguments();
-        user_id=bundle.getString("user_id");
-        token=bundle.getString("token");
-        Log.d("FirstPage","3"+user_id);
-        Log.d("FirstPage","TOKEN"+token);
+        bundle = this.getArguments();
+        user_id = bundle.getString("user_id");
+        token = bundle.getString("token");
+        Log.d("FirstPage", "3" + user_id);
+        Log.d("FirstPage", "TOKEN" + token);
 //        Toast.makeText(getContext(),"tokendezhi"+token,Toast.LENGTH_LONG).show();
 
-        v=inflater.inflate(R.layout.fragment_main,container,false);
-        mSearchView=v.findViewById(R.id.search_text);
-        mList=new ArrayList<>();
+        v = inflater.inflate(R.layout.fragment_main, container, false);
+        mSearchView = v.findViewById(R.id.search_text);
+        mList = new ArrayList<>();
 
         //添加搜索跳转CA
         mSearchView.setFocusable(false);
@@ -68,17 +68,17 @@ public class FragmentFirstpage extends Fragment {
             }
         });
 
-        fragment_attention mfragment_attention=fragment_attention.newInstance(token,user_id);
-        fragment_found mfragment_found=fragment_found.newInstance(token);
-        fragment_unlogin fragment_unlogin= new fragment_unlogin();
+        fragment_attention mfragment_attention = fragment_attention.newInstance(token, user_id);
+        fragment_found mfragment_found = fragment_found.newInstance(token);
+        fragment_unlogin fragment_unlogin = new fragment_unlogin();
 
-        if(token==null) mList.add(fragment_unlogin);
+        if (token == null) mList.add(fragment_unlogin);
         else mList.add(mfragment_attention);
         mList.add(mfragment_found);
 
-        FragmentManager fragmentManager=getFragmentManager();
-        mViewPager=v.findViewById(R.id.viewpager);
-        mViewPager.setAdapter(new TabFragmentPagerAdapter(fragmentManager,mList) {
+        FragmentManager fragmentManager = getFragmentManager();
+        mViewPager = v.findViewById(R.id.viewpager);
+        mViewPager.setAdapter(new TabFragmentPagerAdapter(fragmentManager, mList) {
             @NonNull
             @Override
             public Fragment getItem(int position) {
@@ -90,7 +90,7 @@ public class FragmentFirstpage extends Fragment {
                 return mList.size();
             }
         });
-        mTabLayout=(TabLayout)v.findViewById(R.id.tab_layout);
+        mTabLayout = (TabLayout) v.findViewById(R.id.tab_layout);
         mTabLayout.setupWithViewPager(mViewPager);
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -109,7 +109,6 @@ public class FragmentFirstpage extends Fragment {
                 //已经选中tab后的重复点击tab
             }
         });
-
 
 
         return v;

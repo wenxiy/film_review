@@ -16,6 +16,7 @@ public class TabFragmentPagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         this.mlist = list;
     }
+
     @Override
     public Fragment getItem(int arg0) {
         return mlist.get(arg0);//显示第几个页面
@@ -29,11 +30,10 @@ public class TabFragmentPagerAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        if(position==0){
+        if (position == 0) {
             return "关注";
 
-        }
-        else return "发现";
+        } else return "发现";
     }
 
 }

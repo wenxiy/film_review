@@ -43,7 +43,7 @@ public class fragment_found extends Fragment {
     public static fragment_found newInstance(String token) {
 
         Bundle args = new Bundle();
-        args.putString("token",token);
+        args.putString("token", token);
 
         fragment_found fragment = new fragment_found();
         fragment.setArguments(args);
@@ -55,7 +55,7 @@ public class fragment_found extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fagment_found, null);
-        token=getArguments().getString("token");
+        token = getArguments().getString("token");
 
         list = v.findViewById(R.id.stagger_recyclerview);
         //      准备布局管理器
@@ -65,13 +65,13 @@ public class fragment_found extends Fragment {
 ////        设置布局管理器到recyclerview里
 //        list.setLayoutManager(layoutManager);
 
-        refreshLayout=v.findViewById(R.id.refreshLayout);
+        refreshLayout = v.findViewById(R.id.refreshLayout);
         refreshLayout.setRefreshing(true);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 initData();
-                Log.d("TAG","下拉刷新");
+                Log.d("TAG", "下拉刷新");
             }
         });
 //        refreshLayout.post(new Runnable() {
@@ -108,7 +108,7 @@ public class fragment_found extends Fragment {
 
                 mAdapter.notifyDataSetChanged();
                 refreshLayout.setRefreshing(false);
-                Log.d("TAG","shuju:"+response.body().size());
+                Log.d("TAG", "shuju:" + response.body().size());
 
                 mAdapter.setOnItemClickListener(new StaggerAdapter.OnItemClickListener() {
                     @Override
@@ -116,24 +116,24 @@ public class fragment_found extends Fragment {
 //                        将intent与目标activity联系
                         Intent intent = new Intent(getActivity(), ContentActivity.class);
 //                        建立一个bundle储存一些要传到activity的数据
-                        Bundle bundle=new Bundle();
+                        Bundle bundle = new Bundle();
 //                        传入影评请求是需要的id
-                        bundle.putString("user_id",mData.get(position).getUser_id());
+                        bundle.putString("user_id", mData.get(position).getUser_id());
 
-                        bundle.putInt("Id",mData.get(position).getReview_id());
-                        bundle.putString("content",mData.get(position).getContent());
-                        bundle.putString("UserName",mData.get(position).getName());
-                        bundle.putString("reviewTitle",mData.get(position).getTitle());
-                        bundle.putString("reviewTag",mData.get(position).getTag());
-                        bundle.putString("reviewPicture",mData.get(position).getPicture());
-                        bundle.putString("reviewTime",mData.get(position).getTime());
-                        bundle.putString("reviewIcon",mData.get(position).getUser_picture());
-                        bundle.putString("token",token);
+                        bundle.putInt("Id", mData.get(position).getReview_id());
+                        bundle.putString("content", mData.get(position).getContent());
+                        bundle.putString("UserName", mData.get(position).getName());
+                        bundle.putString("reviewTitle", mData.get(position).getTitle());
+                        bundle.putString("reviewTag", mData.get(position).getTag());
+                        bundle.putString("reviewPicture", mData.get(position).getPicture());
+                        bundle.putString("reviewTime", mData.get(position).getTime());
+                        bundle.putString("reviewIcon", mData.get(position).getUser_picture());
+                        bundle.putString("token", token);
 //                        将bundle放进Intent
                         intent.putExtras(bundle);
 
 //                        if(token!=null)
-                            startActivity(intent);
+                        startActivity(intent);
 //                        else Toast.makeText(getContext(),"请登陆，才能查看哦。",Toast.LENGTH_LONG).show();
 
 //                这里设置点击事件

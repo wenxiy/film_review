@@ -103,7 +103,7 @@ public class PersonalFragment extends Fragment {
     }
 
     public void initfragment() {
-        mTabs.addTab(mTabs.newTab().setText("我的"));
+        mTabs.addTab(mTabs.newTab().setText("我的1"));
         mTabs.addTab(mTabs.newTab().setText("影单"));
         mTabs.addTab(mTabs.newTab().setText("收藏"));
         mViewPager.setAdapter(new Myadapter(getFragmentManager(), token, user_id, mTabs.getTabCount()));

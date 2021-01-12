@@ -40,11 +40,11 @@ public class TagActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle=this.getIntent().getExtras();
-        token=bundle.getString("token");
-        mTag=bundle.getString("mTag");
+        Bundle bundle = this.getIntent().getExtras();
+        token = bundle.getString("token");
+        mTag = bundle.getString("mTag");
         setContentView(R.layout.tag_activity);
-        return_btn=findViewById(R.id.return_tag);
+        return_btn = findViewById(R.id.return_tag);
         return_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,9 +52,9 @@ public class TagActivity extends AppCompatActivity {
             }
         });
 //        找到控件
-        list=findViewById(R.id.tag_recyclerview);
+        list = findViewById(R.id.tag_recyclerview);
 //        创建布局管理器
-        mLinearLayoutManger=new LinearLayoutManager(getApplicationContext());
+        mLinearLayoutManger = new LinearLayoutManager(getApplicationContext());
 //        给recyclerview设置布局管理器
         list.setLayoutManager(mLinearLayoutManger);
 //        构造适配器，给Recyclerview设置适配器
@@ -72,38 +72,38 @@ public class TagActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        searchList=new ArrayList<>();
-        SearchText searchText=new SearchText();
+        searchList = new ArrayList<>();
+        SearchText searchText = new SearchText();
         searchText.setWords(mTag);
-        Retrofit retrofit= new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://114.215.201.204:9091")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        RetrofitAPI API=retrofit.create(RetrofitAPI.class);
-        Call<List<searchData>> task=API.search(searchText);
+        RetrofitAPI API = retrofit.create(RetrofitAPI.class);
+        Call<List<searchData>> task = API.search(searchText);
 //        refreshLayout.setRefreshing(false);
         task.enqueue(new Callback<List<searchData>>() {
             @Override
             public void onResponse(Call<List<searchData>> call, Response<List<searchData>> response) {
                 searchList.addAll(response.body());
-                mAdapter=new TagListViewAdapter(searchList);
+                mAdapter = new TagListViewAdapter(searchList);
                 list.setAdapter(mAdapter);
                 mAdapter.setOnItemClickListener(new TagListViewAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
                         Intent intent = new Intent(getApplicationContext(), ContentActivity.class);
 //                        建立一个bundle储存一些要传到activity的数据
-                        Bundle bundle=new Bundle();
+                        Bundle bundle = new Bundle();
 //                        传入影评请求是需要的id
-                        bundle.putInt("Id",searchList.get(position).getReview_id());
-                        bundle.putString("content",searchList.get(position).getContent());
-                        bundle.putString("UserName",searchList.get(position).getName());
-                        bundle.putString("reviewTitle",searchList.get(position).getTitle());
-                        bundle.putString("reviewTag",searchList.get(position).getTag());
-                        bundle.putString("reviewPicture",searchList.get(position).getPicture());
-                        bundle.putString("reviewTime",searchList.get(position).getTime());
-                        bundle.putString("reviewIcon",searchList.get(position).getUser_picture());
-                        bundle.putString("token",token);
+                        bundle.putInt("Id", searchList.get(position).getReview_id());
+                        bundle.putString("content", searchList.get(position).getContent());
+                        bundle.putString("UserName", searchList.get(position).getName());
+                        bundle.putString("reviewTitle", searchList.get(position).getTitle());
+                        bundle.putString("reviewTag", searchList.get(position).getTag());
+                        bundle.putString("reviewPicture", searchList.get(position).getPicture());
+                        bundle.putString("reviewTime", searchList.get(position).getTime());
+                        bundle.putString("reviewIcon", searchList.get(position).getUser_picture());
+                        bundle.putString("token", token);
 //                        将bundle放进Intent
                         intent.putExtras(bundle);
 

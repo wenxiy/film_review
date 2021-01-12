@@ -75,6 +75,8 @@ public class PersonalLogActivity extends AppCompatActivity {
         PostLoginBean post_login = new PostLoginBean();
         post_login.setPassword(mpasswords);
         post_login.setUser_id(muser_id);
+        Intent intent = new Intent().setClass(PersonalLogActivity.this, MainActivity.class);
+        startActivity(intent);
         Retrofit lretrofit = new Retrofit.Builder()
                 .baseUrl("http://114.215.201.204:9091")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -85,7 +87,7 @@ public class PersonalLogActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<PostToken> call, Response<PostToken> response) {
                 int code = response.code();
-                if (code == HttpURLConnection.HTTP_OK) {
+                if (code == HttpURLConnection.HTTP_OK) {//
                     Post_rlogin = response.body();
 
 //                    获得登录界面的token，并把它传进mainactivity，后面要用

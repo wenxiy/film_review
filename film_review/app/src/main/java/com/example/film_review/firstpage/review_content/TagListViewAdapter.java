@@ -20,22 +20,22 @@ class TagListViewAdapter extends RecyclerView.Adapter<TagListViewAdapter.InnerHo
     private final List<searchData> Data;
     private OnItemClickListener mOnItemClickListener;
 
-    public TagListViewAdapter(List<searchData> list){
-        this.Data=list;
+    public TagListViewAdapter(List<searchData> list) {
+        this.Data = list;
     }
 
     @NonNull
     @Override
     public TagListViewAdapter.InnerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
-        View v=layoutInflater.inflate(R.layout.tag_item,parent,false);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View v = layoutInflater.inflate(R.layout.tag_item, parent, false);
         return new InnerHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TagListViewAdapter.InnerHolder holder, int position) {
-        if(Data!=null) holder.setData(Data.get(position));
-        if(mOnItemClickListener!=null){
+        if (Data != null) holder.setData(Data.get(position));
+        if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -47,22 +47,22 @@ class TagListViewAdapter extends RecyclerView.Adapter<TagListViewAdapter.InnerHo
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         //设置一个监听器，其实就是设置一个回调的接口
-        this.mOnItemClickListener=listener;
+        this.mOnItemClickListener = listener;
 
     }
 
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
 
     @Override
     public int getItemCount() {
-        if(Data!=null)
+        if (Data != null)
             return Data.size();
         else
-        return 10;
+            return 10;
     }
 
     public class InnerHolder extends RecyclerView.ViewHolder {
@@ -74,11 +74,11 @@ class TagListViewAdapter extends RecyclerView.Adapter<TagListViewAdapter.InnerHo
 
         public InnerHolder(@NonNull View itemView) {
             super(itemView);
-            mName=itemView.findViewById(R.id.tag_name);
-            mTitle=itemView.findViewById(R.id.tag_Title);
-            mIcon=itemView.findViewById(R.id.tag_icon);
-            mContent=itemView.findViewById(R.id.tag_content);
-            mPicture=itemView.findViewById(R.id.tag_IconId);
+            mName = itemView.findViewById(R.id.tag_name);
+            mTitle = itemView.findViewById(R.id.tag_Title);
+            mIcon = itemView.findViewById(R.id.tag_icon);
+            mContent = itemView.findViewById(R.id.tag_content);
+            mPicture = itemView.findViewById(R.id.tag_IconId);
 
         }
 

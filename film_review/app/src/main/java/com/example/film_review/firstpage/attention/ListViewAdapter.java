@@ -22,9 +22,8 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
     private OnItemClickListener mOnItemClickListener;
 
 
-
-    public ListViewAdapter(List<AttentionItemData> data){
-        this.mData=data;
+    public ListViewAdapter(List<AttentionItemData> data) {
+        this.mData = data;
     }
 
 
@@ -32,8 +31,8 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
     @Override
     public InnerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //传进去的view就是条目界面
-        LayoutInflater layoutInflater=LayoutInflater.from(parent.getContext());
-        View view=layoutInflater.inflate(R.layout.attention_item,parent,false);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.attention_item, parent, false);
 
 
         return new InnerHolder(view);
@@ -45,8 +44,8 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
     //返回点击后的对应的Viewholder中控制的item
     public void onBindViewHolder(@NonNull InnerHolder holder, final int position) {
 
-        if(mData!=null) holder.setData(mData.get(position));
-        if(mOnItemClickListener!=null){
+        if (mData != null) holder.setData(mData.get(position));
+        if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -60,20 +59,19 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
     @Override
     //返回条目个数
     public int getItemCount() {
-        if(mData!=null){
+        if (mData != null) {
             return mData.size();
-        }
-        else return 0;
+        } else return 0;
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         //设置一个监听器，其实就是设置一个回调的接口
-        this.mOnItemClickListener=listener;
+        this.mOnItemClickListener = listener;
 
     }
 
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
@@ -91,11 +89,11 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
             super(itemView);
 
 
-            mName=(TextView)itemView.findViewById(R.id.attention_userName);
-            mTime=itemView.findViewById(R.id.attention_userTime);
-            mReviewName=itemView.findViewById(R.id.attention_reviewName);
-            mContent=itemView.findViewById(R.id.attention_reviewContent);
-            mtag=itemView.findViewById(R.id.attention_tag);
+            mName = (TextView) itemView.findViewById(R.id.attention_userName);
+            mTime = itemView.findViewById(R.id.attention_userTime);
+            mReviewName = itemView.findViewById(R.id.attention_reviewName);
+            mContent = itemView.findViewById(R.id.attention_reviewContent);
+            mtag = itemView.findViewById(R.id.attention_tag);
         }
 
         public void setData(AttentionItemData data) {
